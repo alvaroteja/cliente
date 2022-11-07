@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="style/styleLogin.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&family=Signika:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        />
+    </head>
+
+    <body>
+        <h1>Login</h1>
+        <form action="" method="" class="contenedor">
+            <div id="datosLogin">
+                <div class="inputCompleto">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" name="nombre" />
+                </div>
+                <div class="inputCompleto">
+                    <label for="contrasena">Contraseña</label>
+                    <input id="pass" type="password" name="contrasena" />
+                    <span class="mostrar-btn"><i class="fas fa-eye"></i></span>
+                </div>
+            </div>
+            <div id="CajaBotonLinkLogin">
+                <input
+                    type="button"
+                    class="boton"
+                    value="Login"
+                    onclick="validarCampos()"
+                />
+                <a href="" class="link">Registrarse</a>
+            </div>
+        </form>
+        <p id="mensaje"></p>
+
+        <script>
+            const campoPass = document.getElementById("pass");
+            const mostrarBtn = document.querySelector("span i");
+            const nombre = document.getElementById("nombre");
+
+            var nombreValido;
+            var contrasenaValida;
+            var errores = "aaa";
+
+            //ojo del password
+            mostrarBtn.onclick = () => {
+                if (campoPass.type === "password") {
+                    campoPass.type = "text";
+                    mostrarBtn.classList.add("esconder-btn");
+                } else {
+                    campoPass.type = "password";
+                    mostrarBtn.classList.remove("esconder-btn");
+                }
+            };
+            function validarCampos() {
+                errores = "";
+
+                //validar nombre
+                nombreValido = true;
+                let nombreIntroducido = nombre.value;
+                let letrasNombreIntroducido = nombreIntroducido.split("");
+
+                letrasNombreIntroducido.forEach((element) => {
+                    if (
+                        element.codePointAt(0) < 97 ||
+                        element.codePointAt(0) > 122
+                    ) {
+                        nombreValido = false;
+                    }
+                });
+
+                if (nombreIntroducido == "") nombreValido = false;
+
+                if (!nombreValido) errores += "Nombre no valido.<br/>";
+
+                //validar contraseña
+                contrasenaValida = true;
+                var mayus = false;
+                var minus = false;
+                var num = false;
+                var caracterRaro = false;
+                let contrasenaIntroducida = campoPass.value;
+                let letrasContrasenaIntroducida =
+                    contrasenaIntroducida.split("");
+                letrasContrasenaIntroducida.forEach((element) => {
+                    if (
+                        element.codePointAt(0) >= 97 &&
+                        element.codePointAt(0) <= 122
+                    ) {
+                        minus = true;
+                    }
+                    if (
+                        element.codePointAt(0) >= 65 &&
+                        element.codePointAt(0) <= 90
+                    ) {
+                        mayus = true;
+                    }
+                    if (
+                        element.codePointAt(0) >= 48 &&
+                        element.codePointAt(0) <= 57
+                    ) {
+                        num = true;
+                    }
+                    if (
+                        (element.codePointAt(0) >= 33 &&
+                            element.codePointAt(0) <= 47) ||
+                        (element.codePointAt(0) >= 58 &&
+                            element.codePointAt(0) <= 64) ||
+                        (element.codePointAt(0) >= 91 &&
+                            element.codePointAt(0) <= 96) ||
+                        (element.codePointAt(0) >= 123 &&
+                            element.codePointAt(0) <= 254)
+                    ) {
+                        caracterRaro = true;
+                    }
+                });
+
+                if (!mayus) {
+                    errores += "La contraseña necesita una mayúscula.<br/>";
+                }
+                if (!minus) {
+                    errores += "La contraseña necesita una minúscula.<br/>";
+                }
+                if (!num) {
+                    errores += "La contraseña necesita un número.<br/>";
+                }
+                if (!caracterRaro) {
+                    errores += "La contraseña necesita un carácter raro.<br/>";
+                }
+
+                if (!mayus || !minus || !num || !caracterRaro) {
+                    contrasenaValida = false;
+                }
+                //imprimir mensaje final
+
+                if (nombreValido && contrasenaValida) {
+                    document.getElementById("mensaje").innerHTML =
+                        "Todo correcto";
+                    console.log("Siii!!!");
+                } else {
+                    document.getElementById("mensaje").innerHTML = errores;
+                    console.log("Nooooo!!!");
+                }
+                console.log(errores);
+            }
+        </script>
+    </body>
+</html>
