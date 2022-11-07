@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="radio">Radio: </label>
+        <input type="text" id="radio" name="radio" />
+        <input type="button" id="calcular" value="Carcular" />
+        <p id="area"></p>
+        <p id="longitud"></p>
+
+        <script>
+            const PI = 3.14159;
+            let radio = document.getElementById("radio").value;
+
+            var boton = document.getElementById("calcular");
+            boton.addEventListener("click", calculo(radio), false);
+
+            function calculo(radio) {
+                document.getElementById("area").innerHTML = PI * radio * radio;
+                document.getElementById("longitud").innerHTML = 2 * PI * radio;
+            }
+        </script>
+    </body>
+</html>

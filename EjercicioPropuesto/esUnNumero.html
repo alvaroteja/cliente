@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="numero">inserta un numero</label>
+        <input type="text" id="numero" name="numero" />
+        <input type="button" value="enviar" onclick="esUnNumero()" />
+        <p id="resultado"></p>
+        <script>
+            function esUnNumero() {
+                $mensaje = "";
+                $valor = document.getElementById("numero").value;
+                console.log($valor);
+                if (isNaN($valor) || $valor == "") {
+                    $mensaje = "no es un numero";
+                } else {
+                    $mensaje = "es un numero";
+                }
+
+                document.getElementById("resultado").innerHTML = $mensaje;
+            }
+        </script>
+    </body>
+</html>

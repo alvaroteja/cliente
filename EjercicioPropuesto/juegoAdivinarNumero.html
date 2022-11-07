@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="introducirNumero">Introduce un número: </label>
+        <input type="text" id="introducirNumero" name="introducirNumero" />
+        <input type="button" value="enviar" onclick="ejecutarPrograma()" />
+        <p id="resultado"></p>
+        <p>numero de intentos:</p>
+        <p id="campoIntentos">0</p>
+    </body>
+    <script>
+        let numeroRandom = Math.floor(Math.random() * 100 + 1);
+        let intentos = 0;
+
+        function ejecutarPrograma() {
+            let resultado = document.getElementById("resultado");
+            let campoIntentos = document.getElementById("campoIntentos");
+            let numeroCaptado = captarNumero();
+            intentos++;
+            console.log(intentos);
+            if (esUnNumero(numeroCaptado)) {
+                if (numeroCaptado > numeroRandom) {
+                    resultado.innerHTML = "El número que buscas es menor.";
+                } else if (numeroCaptado < numeroRandom) {
+                    resultado.innerHTML = "El número que buscas es mayor.";
+                } else if (numeroCaptado == numeroRandom) {
+                    resultado.innerHTML =
+                        "Felicidades, has adivinado el número. Has acertado en " +
+                        intentos +
+                        " intentos.";
+                }
+            } else {
+                resultado.innerHTML = "Parámetro no válido.";
+                console.log(numeroRandom);
+            }
+
+            campoIntentos.innerHTML = intentos;
+        }
+
+        function captarNumero() {
+            let numeroIntroducido =
+                document.getElementById("introducirNumero").value;
+            console.log(esUnNumero(numeroIntroducido));
+            return numeroIntroducido;
+        }
+        function esUnNumero(valor) {
+            let resultado;
+            if (isNaN(valor) || valor == "" || valor > 100 || valor < 1) {
+                resultado = false;
+            } else {
+                resultado = true;
+            }
+            return resultado;
+        }
+    </script>
+</html>

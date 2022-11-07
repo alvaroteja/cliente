@@ -1,0 +1,20 @@
+<!-- 4.- Ejemplo de Uso de getElementByld y cambios en propiedad style. -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo getElementByld</title>
+    </head>
+    <body>
+        <p id="informacion">Curso de ECMAScript6 para cambio de color</p>
+        <button onclick="CambiaColor('blue');">azul</button>
+        <button onclick="CambiaColor('red');">rojo</button>
+        <button onclick="CambiaColor('green');">verde</button>
+
+        <script>
+            function CambiaColor(nombreColor) {
+                let obj = document.getElementById("informacion");
+                obj.style.color = nombreColor;
+            }
+        </script>
+    </body>
+</html>

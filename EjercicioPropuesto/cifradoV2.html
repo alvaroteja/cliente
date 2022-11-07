@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let texto;
+            let clave;
+            let a = "asd";
+
+            do {
+                texto = prompt("introduce un mensaje.");
+            } while (texto == "");
+
+            do {
+                clave = prompt("introduce un número entero como la clave");
+            } while (isNaN(Number(clave)));
+
+            let array = texto.split("");
+            let contador = 0;
+            array.forEach((element) => {
+                let cifra =
+                    element.charCodeAt(0) + parseInt(clave.charAt(contador));
+                document.write(String.fromCharCode(cifra));
+                contador++;
+                if (contador == clave.length) contador = 0;
+            });
+        </script>
+    </body>
+</html>
