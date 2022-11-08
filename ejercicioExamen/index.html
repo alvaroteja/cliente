@@ -68,21 +68,28 @@
 
                 //validar nombre
                 nombreValido = true;
+                var nombreSinCaracterNoValido = true;
                 let nombreIntroducido = nombre.value;
                 let letrasNombreIntroducido = nombreIntroducido.split("");
 
                 letrasNombreIntroducido.forEach((element) => {
                     if (
-                        element.codePointAt(0) < 97 ||
-                        element.codePointAt(0) > 122
+                        !(
+                            element.codePointAt(0) >= 48 &&
+                            element.codePointAt(0) <= 57
+                        ) &&
+                        !(
+                            element.codePointAt(0) >= 97 &&
+                            element.codePointAt(0) <= 122
+                        )
                     ) {
-                        nombreValido = false;
+                        nombreSinCaracterNoValido = false;
                     }
                 });
-
-                if (nombreIntroducido == "") nombreValido = false;
-
-                if (!nombreValido) errores += "Nombre no valido.<br/>";
+                if (!nombreSinCaracterNoValido) {
+                    nombreValido = false;
+                    errores += "Nombre no válido.<br/>";
+                }
 
                 //validar contraseña
                 contrasenaValida = true;
