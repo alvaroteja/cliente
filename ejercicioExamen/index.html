@@ -86,6 +86,11 @@
                         nombreSinCaracterNoValido = false;
                     }
                 });
+
+                if (nombreIntroducido == "") {
+                    nombreSinCaracterNoValido = false;
+                }
+
                 if (!nombreSinCaracterNoValido) {
                     nombreValido = false;
                     errores += "Nombre no válido.<br/>";
@@ -154,12 +159,12 @@
                 if (nombreValido && contrasenaValida) {
                     document.getElementById("mensaje").innerHTML =
                         "Todo correcto";
-                    console.log("Siii!!!");
+                    // console.log("Siii!!!");
                 } else {
                     document.getElementById("mensaje").innerHTML = errores;
-                    console.log("Nooooo!!!");
+                    // console.log("Nooooo!!!");
                 }
-                console.log(errores);
+                // console.log(errores);
             }
         </script>
     </body>
