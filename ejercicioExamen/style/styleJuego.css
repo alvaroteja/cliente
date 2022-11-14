@@ -1,0 +1,7 @@
+.contenedor > * {
+    margin: 20px;
+}
+#casillas {
+    width: 100%;
+    background-color: red;
+}
