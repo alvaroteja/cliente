@@ -155,16 +155,24 @@
                     contrasenaValida = false;
                 }
                 //imprimir mensaje final
-
                 if (nombreValido && contrasenaValida) {
-                    document.getElementById("mensaje").innerHTML =
-                        "Todo correcto";
-                    // console.log("Siii!!!");
+                    let bd = new Map();
+                    bd.set("alvaro", "aA1!");
+                    bd.set("ruben", "rR1!");
+                    bd.set("han", "hH1!");
+                    bd.set("nico", "nN1!");
+                    let nombre = document.getElementById("nombre").value;
+                    let pass = document.getElementById("pass").value;
+                    if (bd.get(nombre) == pass) {
+                        window.location.href = "juego.html";
+                    } else {
+                        errores +=
+                            "El usuario o la contraseña son incorrectos.<br/>";
+                        document.getElementById("mensaje").innerHTML = errores;
+                    }
                 } else {
                     document.getElementById("mensaje").innerHTML = errores;
-                    // console.log("Nooooo!!!");
                 }
-                // console.log(errores);
             }
         </script>
     </body>
