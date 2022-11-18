@@ -16,6 +16,7 @@ function generarListaAleatorios() {
             }
         } while (repetido);
     }
+    ordenarArray(listaAleatorios);
     return listaAleatorios;
 }
 
@@ -34,19 +35,19 @@ function apostar() {
     numerosValidos = validarNumerosApostados(numerosApostados);
     if (numerosValidos) {
         numeroGanador = generarListaAleatorios();
-        //numeroGanador = ['1', '2', '3', '4', '5', '6'];
+        //numeroGanador = ["1", "2", "3", "4", "5", "6"];
 
         document.getElementById("numeroGanador").innerHTML =
             "El número ganador es: " + numeroGanador;
         document.getElementById("numeroJugador").innerHTML =
-            "El número ganador es: " + numerosApostados;
+            "Tu número es: " + numerosApostados;
         hayGanador = compararListas(numeroGanador, numerosApostados);
         if (hayGanador) {
             document.getElementById("resultadoApuesta").innerHTML =
                 "¡Estás de suerte! has ganado un pin.";
         } else {
             document.getElementById("resultadoApuesta").innerHTML =
-                "Hoy no hay suerte...";
+                "Hoy no ha habido suerte...";
         }
     } else {
         alert(
@@ -60,6 +61,18 @@ function leerNumeros() {
         n = document.getElementById("numero" + (index + 1)).value;
         numerosApostados.push(n);
     }
+    // hay duplicados?
+
+    // let duplicados = [];
+
+    // const tempArray = [...numerosApostados];
+
+    // for (let i = 0; i < tempArray.length - 1; i++) {
+    //     if (tempArray[i + 1] === tempArray[i]) {
+    //         duplicados.push(tempArray[i]);
+    //     }
+    // }
+    // console.log(duplicados);
     return numerosApostados;
 }
 
