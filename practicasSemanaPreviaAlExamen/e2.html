@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <table class="default" style="border: 1px solid black"></table> -->
+<!-- 
+        <table
+            class="default"
+            cellspacing="0"
+            cellpadding="10"
+            border="1"
+            align="center"
+        >
+            <tr>
+                <td>Celda 1</td>
+                <td>Celda 2</td>
+                <td>Celda 3</td>
+            </tr>
+            <tr>
+                <td>Celda 4</td>
+                <td>Celda 5</td>
+                <td>Celda 6</td>
+            </tr> -->
+        </table>
+        <script>
+            // crearTabla();
+            crearTabla();
+            function crearTabla(columnas, filas, colorBordeCelda) {
+                // if (typeof columnas== 'undefined') {
+                //     columnas=4;
+                // }
+                // if (typeof filas== 'undefined') {
+                //     filas=10;
+                // }
+                // if (typeof colorBordeCelda== 'undefined') {
+                //     colorBordeCelda='000';
+                // }
+                columnas = (typeof columnas !== 'undefined') ? columnas : 4;
+                filas = (typeof filas !== 'undefined') ?  filas:10;
+                colorBordeCelda = (typeof colorBordeCelda !== 'undefined') ?  colorBordeCelda:'000';
+                
+                document.write(
+                    '<table class="default" cellspacing="0" cellpadding="10" align="center" style="border: #'+colorBordeCelda+' 3px solid; width:100%">'
+                );
+                for (let i = 0; i < filas; i++) {
+                    document.write("<tr>");
+                    for (let j = 0; j < columnas; j++) {
+                        document.write('<td style="border: #'+colorBordeCelda+' 1px solid">');
+                            document.write("fila "+(i+1)+" columna "+(j+1));
+                        document.write("</td>");
+                    }
+                    document.write("</tr>");
+                }
+                document.write('</table>');
+            }
+
+            
+        </script>
+    </body>
+</html>
