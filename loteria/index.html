@@ -12,10 +12,7 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&family=Signika:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     </head>
 
     <body>
@@ -33,12 +30,7 @@
                 </div>
             </div>
             <div id="CajaBotonLinkLogin">
-                <input
-                    type="button"
-                    class="boton"
-                    value="Login"
-                    onclick="validarCampos()"
-                />
+                <input type="button" class="boton" value="Login" onclick="validarCampos()" />
                 <a href="" class="link">Registrarse</a>
             </div>
         </form>
@@ -74,14 +66,8 @@
 
                 letrasNombreIntroducido.forEach((element) => {
                     if (
-                        !(
-                            element.codePointAt(0) >= 48 &&
-                            element.codePointAt(0) <= 57
-                        ) &&
-                        !(
-                            element.codePointAt(0) >= 97 &&
-                            element.codePointAt(0) <= 122
-                        )
+                        !(element.codePointAt(0) >= 48 && element.codePointAt(0) <= 57) &&
+                        !(element.codePointAt(0) >= 97 && element.codePointAt(0) <= 122)
                     ) {
                         nombreSinCaracterNoValido = false;
                     }
@@ -103,36 +89,22 @@
                 var num = false;
                 var caracterRaro = false;
                 let contrasenaIntroducida = campoPass.value;
-                let letrasContrasenaIntroducida =
-                    contrasenaIntroducida.split("");
+                let letrasContrasenaIntroducida = contrasenaIntroducida.split("");
                 letrasContrasenaIntroducida.forEach((element) => {
-                    if (
-                        element.codePointAt(0) >= 97 &&
-                        element.codePointAt(0) <= 122
-                    ) {
+                    if (element.codePointAt(0) >= 97 && element.codePointAt(0) <= 122) {
                         minus = true;
                     }
-                    if (
-                        element.codePointAt(0) >= 65 &&
-                        element.codePointAt(0) <= 90
-                    ) {
+                    if (element.codePointAt(0) >= 65 && element.codePointAt(0) <= 90) {
                         mayus = true;
                     }
-                    if (
-                        element.codePointAt(0) >= 48 &&
-                        element.codePointAt(0) <= 57
-                    ) {
+                    if (element.codePointAt(0) >= 48 && element.codePointAt(0) <= 57) {
                         num = true;
                     }
                     if (
-                        (element.codePointAt(0) >= 33 &&
-                            element.codePointAt(0) <= 47) ||
-                        (element.codePointAt(0) >= 58 &&
-                            element.codePointAt(0) <= 64) ||
-                        (element.codePointAt(0) >= 91 &&
-                            element.codePointAt(0) <= 96) ||
-                        (element.codePointAt(0) >= 123 &&
-                            element.codePointAt(0) <= 254)
+                        (element.codePointAt(0) >= 33 && element.codePointAt(0) <= 47) ||
+                        (element.codePointAt(0) >= 58 && element.codePointAt(0) <= 64) ||
+                        (element.codePointAt(0) >= 91 && element.codePointAt(0) <= 96) ||
+                        (element.codePointAt(0) >= 123 && element.codePointAt(0) <= 254)
                     ) {
                         caracterRaro = true;
                     }
@@ -166,8 +138,7 @@
                     if (bd.get(nombre) == pass) {
                         window.location.href = "juego.html";
                     } else {
-                        errores +=
-                            "El usuario o la contraseña son incorrectos.<br/>";
+                        errores += "El usuario o la contraseña son incorrectos.<br/>";
                         document.getElementById("mensaje").innerHTML = errores;
                     }
                 } else {
