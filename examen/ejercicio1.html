@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style1.css" />
+    </head>
+    <body>
+        <div id="contenedor">
+            <input type="text" id="texto1" />
+            <input type="text" id="texto2" />
+            <input
+                type="button"
+                value="comprobar anagrama"
+                onclick="comprobarsiEsAnagrama(document.getElementById('texto1').value, document.getElementById('texto2').value)"
+            />
+            <p id="respuesta"></p>
+        </div>
+        <script>
+            function comprobarsiEsAnagrama(texto1, texto2) {
+                texto1 = texto1.toLowerCase();
+                texto1 = texto1.split("");
+                texto1 = texto1.sort();
+                texto1 = texto1.join("");
+
+                texto2 = texto2.toLowerCase();
+                texto2 = texto2.split("");
+                texto2 = texto2.sort();
+                texto2 = texto2.join("");
+
+                respuesta = document.getElementById("respuesta");
+                console.log();
+                if (texto1.length == 0 || texto2.length == 0) {
+                    respuesta.innerHTML =
+                        "Introduce 2 palabras antes de comprobar.";
+                } else {
+                    if (texto1 == texto2) {
+                        respuesta.innerHTML = "Las palabras son anagramas.";
+                    } else {
+                        respuesta.innerHTML = "Las palabras no son anagramas.";
+                        console.log(texto2);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
