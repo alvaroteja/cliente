@@ -32,8 +32,10 @@ function pintarNumerosEnN(listaNumeros) {
 }
 function apostar() {
     let numerosApostados = leerNumeros();
-    numerosValidos = validarNumerosApostados(numerosApostados);
-    if (numerosValidos) {
+    let numerosValidos = validarNumerosApostados(numerosApostados);
+    let numerosDuplivados = comprobarSiHayDuplicados(numerosApostados);
+    ordenarArray(numerosApostados);
+    if (numerosValidos && numerosDuplivados) {
         numeroGanador = generarListaAleatorios();
         //numeroGanador = ["1", "2", "3", "4", "5", "6"];
 
@@ -61,25 +63,16 @@ function leerNumeros() {
         n = document.getElementById("numero" + (index + 1)).value;
         numerosApostados.push(n);
     }
-    // hay duplicados?
-
-    // let duplicados = [];
-
-    // const tempArray = [...numerosApostados];
-
-    // for (let i = 0; i < tempArray.length - 1; i++) {
-    //     if (tempArray[i + 1] === tempArray[i]) {
-    //         duplicados.push(tempArray[i]);
-    //     }
-    // }
-    // console.log(duplicados);
     return numerosApostados;
 }
 
 function validarNumerosApostados(numerosApostados) {
     let numerosValidos = true;
     for (let index = 0; index < numerosApostados.length; index++) {
-        if (!(numerosApostados[index] > 0 && numerosApostados[index] < 50)) {
+        if (
+            !(numerosApostados[index] > 0 && numerosApostados[index] < 50) ||
+            numerosApostados[index].length == 0
+        ) {
             numerosValidos = false;
         }
     }
@@ -145,4 +138,17 @@ function seleccionarCombinacionAleatoria(clicked_id) {
         numerosElegidos.push(value);
     }
     pintarNumerosEnN(numerosElegidos);
+}
+
+function comprobarSiHayDuplicados(lista) {
+    var noDuplicados = true;
+    for (let i = 0; i < lista.length && noDuplicados; i++) {
+        var numeroActual = lista[i];
+        for (let j = 0; j < lista.length && noDuplicados; j++) {
+            if (numeroActual == lista[j] && i != j) {
+                noDuplicados = false;
+            }
+        }
+    }
+    return noDuplicados;
 }

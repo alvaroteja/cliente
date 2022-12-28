@@ -1,4 +1,4 @@
-body{
+body {
     padding: 100px;
 }
 .contenedor > * {
@@ -39,28 +39,27 @@ input[type="button"]:hover {
     scale: 1.1;
 }
 
-.combinacionAleatoria{
+.combinacionAleatoria {
     margin: 0px !important;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.numeroCombinacionAleatoria{
+.numeroCombinacionAleatoria {
     border: solid rgb(66, 66, 66) 1px;
     padding: 5px;
     width: 35px;
     text-align: center;
     margin: 0 5px;
-
 }
-.nCombinacionAleatoria{
+.nCombinacionAleatoria {
     margin-right: 10px;
 }
-h2{
+h2 {
     margin-top: 10px;
 }
-#resultadoApuesta{
+#resultadoApuesta {
     margin-top: 10px;
-    color: rgb(92, 139, 201)
-    ;
+    color: rgb(92, 139, 201);
 }
+

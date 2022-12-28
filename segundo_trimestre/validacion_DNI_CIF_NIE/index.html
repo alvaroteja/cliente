@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style/style.css" />
-        <title>Document</title>
+        <title>Validación documentación</title>
     </head>
     <body>
         <div class="contenedor">
@@ -13,11 +13,12 @@
             <div class="box">
                 <form>
                     <div class="input-container">
-                        <input type="text" id="numero" required="" />
+                        <input type="text" id="numero" required="" minlength="9" maxlength="9" />
                         <label for="numero">Número</label>
                     </div>
-                    <button type="button" class="btn" onclick="saludar()">enviar</button>
+                    <button type="button" class="btn" onclick="main()">enviar</button>
                 </form>
+                <p id="mensajeError" class="mensajeError"></p>
             </div>
         </div>
         <script src="js/main.js"></script>
