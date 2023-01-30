@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="scripts.js"></script>
+        <style>
+            @import url("reset.css");
+            body {
+                height: 100vh;
+                width: 100vw;
+                font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+                font-size: 5vw;
+                color: white;
+            }
+            #contenedor {
+                height: 100%;
+                width: 100%;
+                background-color: red;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
+            }
+            #cuadrante1 {
+                background-color: #5d2749;
+            }
+            #cuadrante2 {
+                background-color: #823257;
+            }
+            #cuadrante3 {
+                background-color: #bc4569;
+            }
+            #cuadrante4 {
+                background-color: #ff6d86;
+            }
+            #cuadrante1,
+            #cuadrante2,
+            #cuadrante3,
+            #cuadrante4 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #contenedor > *:hover {
+                background-color: rgb(182, 139, 139);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="cuadrante1"><p>Pinchame</p></div>
+            <div id="cuadrante2"><p>Pinchame</p></div>
+            <div id="cuadrante3"><p>Pinchame</p></div>
+            <div id="cuadrante4"><p>Pinchame</p></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+#capa {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    border: 1px solid black;
+    overflow: scroll;
+}
+#boton {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    bottom: 0;
+    display: none;
+    text-align: center;
+    background-color: black;
+}
+#boton button {
+    width: 50%;
+    height: 50px;
+    margin-top: 25px;
+}
