@@ -1,22 +1,21 @@
-/* * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+* {
+    font-family: sans-serif;
     margin: 0;
 }
 body {
+    min-height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
     background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     text-align: center;
+}
+main div {
+    /* display: inline-block; */
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -25,53 +24,77 @@ main {
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 32px 17px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 32px 17px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    height: 400px;
-}
-p {
-    margin: 0;
-    font-size: 1.2rem;
-    color: white;
-}
-.error {
-    background-color: red;
-    color: white;
-    font-weight: bold;
-}
-figure {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-img {
     width: 200px;
-    border-radius: 10px;
-} */
-* {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    margin: 0;
-}
-body {
-    background-color: yellow;
-}
-main {
-    text-align: center;
-}
-main div {
-    display: inline-block;
-    padding: 3em;
+    height: 250px;
 }
 main div:nth-of-type(odd) {
-    background-color: lightgray;
+    background-color: rgba(24, 120, 188, 0.285);
 }
 main div:hover {
-    background-color: rgb(88, 230, 230);
+    background-color: rgba(53, 124, 190, 0.63);
 }
 p {
-    margin: 0;
+    margin-bottom: 10px;
 }
 .error {
     background-color: red;
     color: white;
     font-weight: bold;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    align-items: center;
+}
+figure {
+    margin: 0;
+    width: 100%;
+}
+
+figure img {
+    width: 60%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100px;
+}
+
+button:hover {
+    background-color: #f7fafa;
+}
+
+button:focus {
+    border-color: #008296;
+    box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+    outline: 0;
 }
